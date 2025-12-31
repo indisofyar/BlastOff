@@ -2,18 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://c7xy671srn8rt" path="res://Enemies/Obstacle.tscn" id="1_cgdr0"]
 [ext_resource type="Texture2D" uid="uid://kr8ni565sxwv" path="res://Enemies/Birds/birds.png" id="2_1s2n1"]
-[ext_resource type="Script" path="res://Enemies/Birds/Bird.gd" id="2_5ajeh"]
+[ext_resource type="Script" uid="uid://pjfphbuqayet" path="res://Enemies/Birds/Bird.gd" id="2_5ajeh"]
 [ext_resource type="AudioStream" uid="uid://dnxh2056kd87m" path="res://Enemies/Birds/bird_hit.wav" id="4_r6nau"]
 [ext_resource type="Texture2D" uid="uid://d3hu2tbqsaey0" path="res://Enemies/Birds/feather.svg" id="5_6eqo1"]
 
 [sub_resource type="Curve" id="Curve_4fiub"]
-min_value = -25.0
-max_value = 25.0
+_limits = [-25.0, 25.0, 0.0, 1.0]
 _data = [Vector2(0, -25), 0.0, 0.0, 0, 0, Vector2(0.447644, -9.71698), 0.0, 0.0, 0, 0, Vector2(1, 0.0943375), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_oae8b"]
-max_value = 50.0
+_limits = [0.0, 50.0, 0.0, 1.0]
 _data = [Vector2(0, 48.6792), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -142,8 +141,7 @@ scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_dy0ov")
 animation = &"flying"
 autoplay = "flying"
-frame = 3
-frame_progress = 0.00976447
+frame_progress = 0.9942653
 
 [node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(6, -11)
