@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://udhybfaq1xwa"]
+[gd_scene load_steps=8 format=3 uid="uid://udhybfaq1xwa"]
 
 [ext_resource type="Texture2D" uid="uid://gnbdubt8ncxq" path="res://Background/clouds.svg" id="1_60ygb"]
-[ext_resource type="Script" path="res://Background/parallax_clouds.gd" id="1_jjkuk"]
+[ext_resource type="Script" uid="uid://lcaisaistese" path="res://Background/parallax_clouds.gd" id="1_jjkuk"]
+[ext_resource type="Texture2D" uid="uid://cfxhvuh672e4p" path="res://Background/3.png" id="2_dki4p"]
+[ext_resource type="Texture2D" uid="uid://qviws86ag8ax" path="res://Background/Clouds/4.png" id="2_nnq21"]
+[ext_resource type="Texture2D" uid="uid://do85oahqsr8cc" path="res://Background/Clouds/sunnyland_environment_ack.png" id="3_jk8tt"]
 
 [sub_resource type="Shader" id="Shader_64uhu"]
 code = "/**
@@ -46,7 +49,58 @@ shader_parameter/modulate = Color(0, 0, 0, 0.392157)
 script = ExtResource("1_jjkuk")
 metadata/_edit_vertical_guides_ = [-1130.0]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -1125.0
+offset_top = -9.0
+offset_right = -1035.799
+offset_bottom = 46.750656
+scale = Vector2(34.81482, 35.15866)
+texture = ExtResource("3_jk8tt")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-349, 520)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(787, 822.00006)
+scale = Vector2(5.5117826, 3.8213603)
+texture = ExtResource("2_nnq21")
+
+[node name="Floor clouds" type="ParallaxLayer" parent="."]
+visible = false
+z_index = 7
+z_as_relative = false
+position = Vector2(1287, 52)
+scale = Vector2(1.4255059, 0.988314)
+motion_scale = Vector2(1, 0.1)
+motion_mirroring = Vector2(3000, 1640)
+
+[node name="CanvasGroup" type="Node2D" parent="Floor clouds"]
+modulate = Color(1, 1, 1, 0.215686)
+position = Vector2(-613, -17.1925)
+
+[node name="DistantClouds3" type="ParallaxLayer" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(0, 17)
+scale = Vector2(1.011, 1)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(3000, 1640)
+
+[node name="Sprite2D" type="Sprite2D" parent="DistantClouds3"]
+position = Vector2(-995.05444, 1249.0001)
+scale = Vector2(3.2417989, 3.2417989)
+texture = ExtResource("2_dki4p")
+
+[node name="CanvasGroup" type="Node2D" parent="DistantClouds3"]
+modulate = Color(1, 1, 1, 0.215686)
+position = Vector2(-613, -17.1925)
+
 [node name="DistantClouds" type="ParallaxLayer" parent="."]
+visible = false
 z_index = 7
 z_as_relative = false
 position = Vector2(0, 17)
@@ -100,6 +154,7 @@ region_enabled = true
 region_rect = Rect2(-0.21991, 697.955, 827.855, 226.362)
 
 [node name="CanvasGroup2" type="Node2D" parent="DistantClouds"]
+visible = false
 modulate = Color(1, 1, 1, 0.215686)
 position = Vector2(793, -17.1925)
 
@@ -145,6 +200,7 @@ region_enabled = true
 region_rect = Rect2(-0.21991, 697.955, 827.855, 226.362)
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
+visible = false
 z_index = 7
 z_as_relative = false
 motion_mirroring = Vector2(2400, 2105)
@@ -268,6 +324,7 @@ region_enabled = true
 region_rect = Rect2(393.57, 914.338, 326.585, 205.065)
 
 [node name="UICanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(1, 1, 1, 0.313726)
 
 [node name="NightCanvasModulate" type="CanvasModulate" parent="."]

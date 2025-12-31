@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1tug87fw4xs"]
+[gd_scene load_steps=17 format=3 uid="uid://c1tug87fw4xs"]
 
-[ext_resource type="Script" path="res://Player/rocket.gd" id="1_7uc35"]
+[ext_resource type="Script" uid="uid://ct5g5uw14jj63" path="res://Player/rocket.gd" id="1_7uc35"]
 [ext_resource type="Texture2D" uid="uid://dsjy7ft70oyse" path="res://Player/flame_particle.svg" id="1_dksgl"]
 [ext_resource type="Texture2D" uid="uid://6jimbg33yd70" path="res://Player/rocket-base.svg" id="3_ud6bj"]
 [ext_resource type="Gradient" uid="uid://dm0fhd02w7cwj" path="res://Player/Gradients/normal_rocket_flame.tres" id="3_w8oe5"]
 [ext_resource type="Texture2D" uid="uid://c26mbporxv5pf" path="res://Player/Custom/Colors/yellow.svg" id="4_0xgas"]
+[ext_resource type="Texture2D" uid="uid://80tw3uklpniu" path="res://Player/Plane/plane_frame_30.png" id="4_btqeo"]
 [ext_resource type="Texture2D" uid="uid://xo3au7rockv7" path="res://Player/Custom/Textures/apollo.svg" id="5_b3771"]
+[ext_resource type="Texture2D" uid="uid://cwq2vhknd4mcw" path="res://Player/Plane/plane_frame_31.png" id="5_w55r4"]
+[ext_resource type="Texture2D" uid="uid://h0kqr7aphqmr" path="res://Player/Plane/plane_frame_32.png" id="6_mn0om"]
 [ext_resource type="Texture2D" uid="uid://b3xobq703abg2" path="res://Player/Powerups/rocket_shield.png" id="7_nkkoi"]
 [ext_resource type="AudioStream" uid="uid://bj6nx8lygatlq" path="res://Player/Powerups/boost_toggled.wav" id="8_bnygg"]
 
@@ -16,6 +19,23 @@ point_count = 2
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_782wp"]
 radius = 40.0
 height = 209.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8m3n7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_btqeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w55r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mn0om")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Shader" id="Shader_00np7"]
 code = "/**
@@ -65,8 +85,8 @@ script = ExtResource("1_7uc35")
 modulate = Color(2, 1.5, 1, 1)
 position = Vector2(1, 95)
 emitting = false
-lifetime = 0.3
 texture = ExtResource("1_dksgl")
+lifetime = 0.3
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector2(0, 1)
@@ -88,18 +108,29 @@ scale = Vector2(8.05, 13.95)
 
 [node name="Sprite" type="Node2D" parent="."]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite"]
+position = Vector2(0, -0.99999994)
+rotation = -3.1415925
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_8m3n7")
+autoplay = "default"
+frame_progress = 0.61176044
+
 [node name="Base" type="Sprite2D" parent="Sprite"]
+visible = false
 material = SubResource("ShaderMaterial_5uuih")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_ud6bj")
 offset = Vector2(-1, 0)
 
 [node name="Color" type="Sprite2D" parent="Sprite"]
+visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_0xgas")
 offset = Vector2(-1, 0)
 
 [node name="Texture" type="Sprite2D" parent="Sprite"]
+visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_b3771")
 offset = Vector2(-1, 0)

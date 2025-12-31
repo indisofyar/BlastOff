@@ -1,12 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://qv60sp3xvc68"]
+[gd_scene load_steps=15 format=3 uid="uid://qv60sp3xvc68"]
 
 [ext_resource type="PackedScene" uid="uid://b5l7prnxix5uf" path="res://Collectables/collectable.tscn" id="1_ewbhv"]
 [ext_resource type="Texture2D" uid="uid://c3uvx3rcoa67b" path="res://Collectables/Shield/shield_icon.svg" id="2_4r6cp"]
-[ext_resource type="Script" path="res://Collectables/Shield/shield.gd" id="2_ktubx"]
+[ext_resource type="Script" uid="uid://g5ws3whongrt" path="res://Collectables/Shield/shield.gd" id="2_ktubx"]
+[ext_resource type="Texture2D" uid="uid://cjffvffc18d2u" path="res://Collectables/Shield/shield-export1.png" id="4_raetd"]
+[ext_resource type="Texture2D" uid="uid://cr8k2jr6bvh10" path="res://Collectables/Shield/shield-export2.png" id="5_yi4wc"]
+[ext_resource type="Texture2D" uid="uid://d10kt6auiqj27" path="res://Collectables/Shield/shield-export3.png" id="6_0w6ii"]
+[ext_resource type="Texture2D" uid="uid://byxusp4ba8dk4" path="res://Collectables/Shield/shield-export4.png" id="7_ntrcr"]
+[ext_resource type="Texture2D" uid="uid://dfsr6nmmrcanj" path="res://Collectables/Shield/shield-export5.png" id="8_8l7rx"]
+[ext_resource type="Texture2D" uid="uid://da8nthsec824g" path="res://Collectables/Shield/shield-export6.png" id="9_hux0r"]
+[ext_resource type="Texture2D" uid="uid://b4l0cvy0vknjg" path="res://Collectables/Shield/shield-export7.png" id="10_8468n"]
+[ext_resource type="Texture2D" uid="uid://t50qui661dd5" path="res://Collectables/Shield/shield-export8.png" id="11_w23xl"]
+[ext_resource type="Texture2D" uid="uid://djkrbtedi8flm" path="res://Collectables/Shield/shield-export9.png" id="12_7d1uq"]
+[ext_resource type="Texture2D" uid="uid://ch1np476ndnmb" path="res://Collectables/Shield/shield-export10.png" id="13_wquem"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ciss2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_raetd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yi4wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0w6ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ntrcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8l7rx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hux0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8468n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w23xl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7d1uq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wquem")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [node name="Shield" instance=ExtResource("1_ewbhv")]
 script = ExtResource("2_ktubx")
 collectable_type = 3
 
+[node name="SpriteBack" parent="." index="1"]
+visible = false
+
 [node name="Sprite" parent="." index="2"]
+visible = false
 texture = ExtResource("2_4r6cp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="6"]
+texture_filter = 1
+scale = Vector2(5.5600023, 5.5600023)
+sprite_frames = SubResource("SpriteFrames_ciss2")
+autoplay = "default"
+frame_progress = 0.71786463

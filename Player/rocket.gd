@@ -61,6 +61,8 @@ var targetted_side: int
 # Variables related to powerups
 var is_rocket_invincible: bool = false
 
+@export var debug_invincible: bool = false
+
 var original_shield_scale: float = 0.3 # Should be changed everytime the shield is going to be expanded
 var shield_scale_tween: Tween
 var shield_ending_fade: Tween
@@ -228,13 +230,14 @@ func _on_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int
 		recently_collided_obstacles.append(area)
 
 		var removal_timer = get_tree().create_timer(0.5)
-		removal_timer.timeout.connect(func (): recently_collided_obstacles.erase(area))
+		var area_ref = area
+		removal_timer.timeout.connect(func (): recently_collided_obstacles.erase(area_ref), CONNECT_REFERENCE_COUNTED)
 
 		if area.has_method("_on_hit"): # Calls the function present on the obstacle / collectable
 			area.call("_on_hit")
 
 		if area is Obstacle:
-			if not is_rocket_invincible:
+			if not is_rocket_invincible and not debug_invincible:
 				emit_signal("player_hurt")
 			else:
 				if area.obstacle_type == SpawnManager.BIRD:

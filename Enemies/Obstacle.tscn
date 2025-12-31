@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7xy671srn8rt"]
 
-[ext_resource type="Script" path="res://Enemies/Obstacle.gd" id="1_ufpf4"]
+[ext_resource type="Script" uid="uid://cs8ll3p5nm3iy" path="res://Enemies/Obstacle.gd" id="1_ufpf4"]
 
 [sub_resource type="Curve" id="Curve_uxjpy"]
 _data = [Vector2(0, 0.124528), 0.0, 0.0, 0, 0, Vector2(1, 0.0641509), 0.0, 0.0, 0, 0]

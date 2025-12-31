@@ -1,12 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5knjg36kv33q"]
+[gd_scene load_steps=15 format=3 uid="uid://b5knjg36kv33q"]
 
 [ext_resource type="PackedScene" uid="uid://b5l7prnxix5uf" path="res://Collectables/collectable.tscn" id="1_biwxq"]
-[ext_resource type="Script" path="res://Collectables/Boost/boost.gd" id="2_fftp3"]
+[ext_resource type="Script" uid="uid://cyov5ndcrb0qh" path="res://Collectables/Boost/boost.gd" id="2_fftp3"]
 [ext_resource type="Texture2D" uid="uid://bu53vm4yb4w6k" path="res://Collectables/Boost/boost_icon.svg" id="2_ygrme"]
+[ext_resource type="Texture2D" uid="uid://cdof78t2tcjtu" path="res://Collectables/Boost/rank1-export1.png" id="4_0w82s"]
+[ext_resource type="Texture2D" uid="uid://21wxyytjcxl2" path="res://Collectables/Boost/rank1-export2.png" id="5_u3xfk"]
+[ext_resource type="Texture2D" uid="uid://clqy1rav5hone" path="res://Collectables/Boost/rank1-export3.png" id="6_f3gl8"]
+[ext_resource type="Texture2D" uid="uid://dxmqopismt8w4" path="res://Collectables/Boost/rank1-export4.png" id="7_htecg"]
+[ext_resource type="Texture2D" uid="uid://bwvuyyrhhci8c" path="res://Collectables/Boost/rank1-export5.png" id="8_8flc1"]
+[ext_resource type="Texture2D" uid="uid://c8te6luxf2201" path="res://Collectables/Boost/rank1-export6.png" id="9_dpylj"]
+[ext_resource type="Texture2D" uid="uid://daalqwaue0fqh" path="res://Collectables/Boost/rank1-export7.png" id="10_sv46r"]
+[ext_resource type="Texture2D" uid="uid://dsopffu6fgaxo" path="res://Collectables/Boost/rank1-export8.png" id="11_g4a0w"]
+[ext_resource type="Texture2D" uid="uid://5rwka0tj6m3k" path="res://Collectables/Boost/rank1-export9.png" id="12_2u2rf"]
+[ext_resource type="Texture2D" uid="uid://cwmntclw5i0b3" path="res://Collectables/Boost/rank1-export10.png" id="13_qkhml"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxiqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0w82s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u3xfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f3gl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_htecg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8flc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dpylj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sv46r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_g4a0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2u2rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qkhml")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [node name="Boost" instance=ExtResource("1_biwxq")]
 script = ExtResource("2_fftp3")
 collectable_type = 4
 
+[node name="CPUParticles2D" parent="." index="0"]
+texture_filter = 1
+
+[node name="SpriteBack" parent="." index="1"]
+visible = false
+
 [node name="Sprite" parent="." index="2"]
+visible = false
 texture = ExtResource("2_ygrme")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="6"]
+texture_filter = 1
+scale = Vector2(7.440596, 7.440596)
+sprite_frames = SubResource("SpriteFrames_pxiqn")
+frame_progress = 0.7774653

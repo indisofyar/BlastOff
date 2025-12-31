@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cihqkayqkp35l"]
 
-[ext_resource type="Script" path="res://Background/background.gd" id="1_c882g"]
+[ext_resource type="Script" uid="uid://drcrj8072jpyx" path="res://Background/background.gd" id="1_c882g"]
 [ext_resource type="Texture2D" uid="uid://c632a05yetuwy" path="res://Background/bg_star.svg" id="2_44itj"]
 [ext_resource type="PackedScene" uid="uid://udhybfaq1xwa" path="res://Background/parallax_clouds.tscn" id="3_627mq"]
 [ext_resource type="Texture2D" uid="uid://d3y2gy53d64nc" path="res://Background/bg_star_white.svg" id="3_nxmsk"]
@@ -44,6 +44,7 @@ size_flags_vertical = 3
 script = ExtResource("1_c882g")
 
 [node name="NightSky" type="TextureRect" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,6 +64,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_778mg")
 
 [node name="LightEmitter" type="TextureRect" parent="Control"]
+visible = false
 self_modulate = Color(0.949158, 0.991849, 0.977159, 1)
 layout_mode = 0
 offset_right = 60.0
@@ -75,6 +77,7 @@ stretch_mode = 2
 visible = false
 
 [node name="MotherStar" type="TextureRect" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = -155.0
 offset_top = -93.0
@@ -84,5 +87,6 @@ texture = SubResource("AnimatedTexture_ce8ja")
 expand_mode = 1
 
 [node name="StarClusters" type="Node2D" parent="Control"]
+visible = false
 
 [node name="Background" parent="." instance=ExtResource("3_627mq")]

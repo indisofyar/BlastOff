@@ -68,18 +68,18 @@ const SHAKE_STRENGTHS = {
 
 #MENU_LEVEL.MAIN is index 1 not zero so keep that in mind if you change to an array
 enum MENU_IDS {
-		NONE,
-		MAIN_MENU,
-		START_MENU,
-		SETTINGS,
-		CREDITS,
-		CONTROLS,
-		INGAME_UI,
-		GAME_OVER,
-		SKIN_SELECTOR,
-		STATISTICS,
-		GUIDE
-	}
+	NONE,
+	MAIN_MENU,
+	START_MENU,
+	SETTINGS,
+	CREDITS,
+	CONTROLS,
+	INGAME_UI,
+	GAME_OVER,
+	SKIN_SELECTOR,
+	STATISTICS,
+	GUIDE
+}
 
 var menus = {
 	MENU_IDS.MAIN_MENU : preload("res://UI/main_menu.tscn").instantiate(),
@@ -137,9 +137,14 @@ func spawn_menu(menu_id: int):
 
 	call_deferred("_deferred_load_menu", menu_id)
 
+
+	
 func _spawn_ingame_uis():
 	await _wait_till_transition()
-
+	
+	if menus[MENU_IDS.CONTROLS].get_parent() != null:
+		push_error('already has parent', menus[MENU_IDS.CONTROLS].get_parent(), 'menu', menus[MENU_IDS.CONTROLS], 'conrols', MENU_IDS.CONTROLS)
+		
 	main_scene.add_child(menus[MENU_IDS.CONTROLS])
 	spawn_menu(MENU_IDS.INGAME_UI)
 

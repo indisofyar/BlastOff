@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dikpya2pi0i66"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_lyfac"]
+[ext_resource type="Script" uid="uid://djlrhjdrkf1pe" path="res://main.gd" id="1_lyfac"]
 [ext_resource type="PackedScene" uid="uid://c1tug87fw4xs" path="res://Player/rocket.tscn" id="1_nmvdq"]
 [ext_resource type="PackedScene" uid="uid://cihqkayqkp35l" path="res://Background/background.tscn" id="5_rc5yt"]
-[ext_resource type="Shader" path="res://Shader/screenshake.gdshader" id="6_a3vbv"]
+[ext_resource type="Shader" uid="uid://c1tdyg84tcu14" path="res://Shader/screenshake.gdshader" id="6_a3vbv"]
 [ext_resource type="PackedScene" uid="uid://v7o2t6i1gg47" path="res://spawner.tscn" id="7_bkyw2"]
 [ext_resource type="PackedScene" uid="uid://c7khim02dfxsw" path="res://Background/transition.tscn" id="10_ngmpp"]
 [ext_resource type="PackedScene" uid="uid://cd02qtpq2ias" path="res://UI/tutorial.tscn" id="11_ldlc6"]
@@ -22,6 +22,7 @@ script = ExtResource("1_lyfac")
 
 [node name="Rocket" parent="." instance=ExtResource("1_nmvdq")]
 position = Vector2(359, 129)
+scale = Vector2(1, 1.0051005)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 mix_target = 2
