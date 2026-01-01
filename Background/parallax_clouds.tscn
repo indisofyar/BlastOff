@@ -325,7 +325,7 @@ region_rect = Rect2(393.57, 914.338, 326.585, 205.065)
 
 [node name="UICanvasModulate" type="CanvasModulate" parent="."]
 visible = false
-color = Color(1, 1, 1, 0.313726)
+light_mask = 2
 
 [node name="NightCanvasModulate" type="CanvasModulate" parent="."]
 visible = false

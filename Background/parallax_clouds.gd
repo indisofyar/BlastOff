@@ -43,8 +43,9 @@ func _physics_process(delta: float) -> void:
 
 func _change_background_mode(is_in_menu: bool):
 	if is_in_menu:
-		distant_clouds_node.hide()
-		ui_canvas_modulate.show()
+		pass
+		#distant_clouds_node.hide()
+		#ui_canvas_modulate.show()
 	else:
 		#distant_clouds_node.show()
 		ui_canvas_modulate.hide()
